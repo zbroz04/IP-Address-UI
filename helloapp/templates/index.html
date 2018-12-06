@@ -3,18 +3,28 @@
 <html>
     <head>
         <meta charset="utf-8">
+        {% load static %}
+        <link rel="stylesheet" type="text/css" href="{% static 'style.css' %}">
         <title>Howdy!</title>
     </head>
     <body>
+        
+        <div class="wrapper">
+            <div class="container">
+                <input type="text" class="input" placeholder="What are you looking for?">
+                <input type="button" value="search" class="close-btn">
+            </div>
+            <div>
+                <h1>IP Address:</h1>
+                <ul>
+                  {% for ip in hostAddress %}
+                        <li>{{ ip }}</li>
+                    {% endfor %}
+                </ul>
+            </div>
+        </div>
 
-        <h1>IP Address:</h1>
-        <ul>
-        	{% for ip in hostAddress %}
-
-        		<li>{{ ip }}</li>
-
-        	{% endfor %}
-        </ul>
+        
 
     </body>
 </html>
